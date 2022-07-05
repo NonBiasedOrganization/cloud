@@ -3,21 +3,9 @@ const app = express();
 
 app.get('/', (req, res) => {
   res.send(parseHTML(`
-<div class="item" onclick="document.querySelector('#banner').style.display = 'block';">
-<img src="https://cdn-icons-png.flaticon.com/512/137/137035.png" />
-<span>discord.svg</span>
-</div>
-<div class="item" onclick="document.querySelector('#banner').style.display = 'block';">
-<img src="https://cdn-icons-png.flaticon.com/512/137/137035.png" />
-<span>ico...gh.svg</span>
-</div>
-<div class="item" onclick="document.querySelector('#banner').style.display = 'block';">
-<img src="https://cdn-icons-png.flaticon.com/512/137/137035.png" />
-<span>ico...gg.svg</span>
-</div>
-<div class="item" onclick="document.querySelector('#banner').style.display = 'block';">
-<img src="https://bundle-v2.lankybox02.repl.co/assets/logo.png" />
-<span>bund...o.svg</span>
+<div class="item" onclick="showIcon('icon')">
+<img src="/icon" />
+<span>icon.png</span>
 </div>
 
 <div style="z-layer: 999;
@@ -29,8 +17,21 @@ bottom: 0;
 background: rgba(0, 0, 0, 0.5);
 transition: 0.5;
 display: none;
-cursor: pointer;" onclick="this.style.display = 'none'" id="banner"></div>
+cursor: pointer;
+text-align: center;
+padding-top: 10%" onclick="this.style.display = 'none'" id="banner"></div>
+
+<script>
+function showIcon(icon) {
+document.querySelector('#banner').style.display = 'block';
+document.querySelector('#banner').innerHTML = "<img src='/icon'>";
+}
+</script>
 `));
+});
+
+app.get('/icon', (req, res) => {
+  res.sendFile(`${__dirname}/icon.png`);
 });
 
 /* Functions */
