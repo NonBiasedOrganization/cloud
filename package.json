@@ -1,0 +1,9 @@
+{
+  "name": "cloud",
+  "version": "1.0.0",
+  "description": "A cloud file hosting service made by NonBiasedOrg.",
+  "author": "Lanksy (Non-Biased-Org)",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
