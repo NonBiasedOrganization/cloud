@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
   for (let i = 0; i < items.length; i++) {
     icons = icons + `
 <div class="item" onclick="showIcon('icon')">
-<img src="/icon" />
+<img src="/${items[i]}" />
 <span>${items[i]}.nbo</span>
 </div>`;
   }
@@ -115,8 +115,11 @@ function refresh(data) {
 `));
 });
 
-app.get('/icon', (req, res) => {
-  res.sendFile(`${__dirname}/icon.png`);
+app.get('/image', (req, res) => {
+  res.sendFile(`${__dirname}/image.png`);
+});
+app.get('/text', (req, res) => {
+  res.sendFile(`${__dirname}/text.png`);
 });
 
 app.get('/new/:icon', (req, res) => {
