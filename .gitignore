@@ -2,3 +2,4 @@
 .config
 replit.nix
 package-lock.josn
+node_modules/
