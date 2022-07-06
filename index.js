@@ -8,6 +8,12 @@ let items = ["text"];
 let style = `body {
   font-family: Helvetica;
   margin: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .nav {
@@ -58,7 +64,7 @@ app.get('/', (req, res) => {
   let icons = "";
   for (let i = 0; i < items.length; i++) {
     icons = icons + `
-<div class="item" onclick="showIcon('icon')">
+<div class="item" onclick="showIcon('${items[i]}')">
 <img src="/${items[i]}" />
 <span>${items[i]}.nbo</span>
 </div>`;
